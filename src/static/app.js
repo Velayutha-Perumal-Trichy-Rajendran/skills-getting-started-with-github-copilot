@@ -72,7 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
         await fetchActivities();
       } else {
         const result = await response.json();
-        alert(result.detail || "Failed to unregister participant.");
+        messageDiv.textContent = result.detail || "Failed to unregister participant.";
+        messageDiv.className = "error";
+        messageDiv.classList.remove("hidden");
+        setTimeout(() => messageDiv.classList.add("hidden"), 5000);
       }
     } catch (error) {
       console.error("Error unregistering participant:", error);
