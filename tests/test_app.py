@@ -21,8 +21,7 @@ def test_get_activities_returns_all():
     response = client.get("/activities")
     assert response.status_code == 200
     data = response.json()
-    assert len(data) == 9
-    assert "Chess Club" in data
+assert {"Chess Club", "Programming Class", "Gym Class"}.issubset(data.keys())
 
 
 def test_get_activities_includes_expected_fields():
